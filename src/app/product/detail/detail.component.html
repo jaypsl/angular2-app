@@ -1,0 +1,47 @@
+<!-- <p>
+  detail works!
+</p> -->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Product details
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Product name:</div>
+      <div class="col-xs-6 col-md-4">{{product.productName}}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Product code:</div>
+      <div class="col-xs-6 col-md-4">{{product.productCode}}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Product description:</div>
+      <div class="col-xs-6 col-md-4">{{product.description}}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Release date:</div>
+      <div class="col-xs-6 col-md-4">{{product.releaseDate}}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-md-4">PRODUCT RATING</div>
+      <div class="col-xs-6 col-md-4">{{product.starRating}}</div>
+       <app-rating [rating]="product.starRating" (ratingtoParent)="ratingFnParent($event)"></app-rating>
+    </div> 
+
+    <div class="row">
+      <div class="col-xs-6 col-md-4"></div>
+      <div class="col-xs-6 col-md-4"></div>
+      <div class="col-xs-6 col-md-4">
+        <img [src]="product.imageUrl" style="width: 100px">
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<button class="btn btn-primary" (click)="backtolist()">back to list</button>

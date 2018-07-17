@@ -1,0 +1,50 @@
+<router-outlet></router-outlet>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+  {{pageTitle}}
+  <a href="#" class="btn btn-success" [routerLink] = "['create']">Create</a>
+  </div>
+  <div class="panel-body">
+
+    <input [(ngModel)] = "filterBy" class="form-control" type="text" placeholder="filter products"/>
+    <div class="alert alert-success" *ngIf="filterBy">
+      list filtered using : {{filterBy}}
+    </div>
+    <table *ngIf = "products && products.length" class="table table-bordered table-hover">
+      <tr>
+        <th>
+          <button class="btn btn-primary" (click)="toggleImage()">
+          {{showHideImg ? 'Hide image' : 'Show Image'}}
+        </button>
+      </th>
+    <th>Product name</th>
+    <th>Product Code</th>
+    <th>Price</th>
+    <th>Rating</th>
+      </tr>
+
+      <tr *ngFor="let product of products | products:filterBy">
+        <td>
+          <img *ngIf = "showHideImg" [src]="product.imageUrl" style="width:50px">
+        </td>
+        <td>
+          <a href="#" [routerLink]="['/products', product.productCode]">
+          {{product.productName}}
+        </a>
+        </td>
+        <td>{{product.productCode}}</td>
+        <td>{{product.price}}</td>
+        <td>
+          <app-rating [rating]="product.starRating" (ratingtoParent)="ratingFnParent($event)"></app-rating>
+      </td>
+
+      </tr>
+    </table>
+
+  </div>
+</div>
+
+
+
+

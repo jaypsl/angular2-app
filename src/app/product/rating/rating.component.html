@@ -1,0 +1,15 @@
+
+<div (click)="sendRatingToParent()">
+  <span *ngFor = "let item of rating_array">
+    <span class="glyphicon glyphicon-star"></span>
+  </span>
+
+  <!-- <span class="glyphicon glyphicon-star"></span>
+  <span class="glyphicon glyphicon-star"></span>
+  <span class="glyphicon glyphicon-star"></span>
+  <span class="glyphicon glyphicon-star"></span> -->
+</div>
+
+
+<!-- rating is child component -->
+<!-- we attach click event at top. so when that event happens we can call function.within that we can emit an event. -->
